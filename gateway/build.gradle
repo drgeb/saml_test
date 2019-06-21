@@ -19,6 +19,8 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven { url "https://build.shibboleth.net/nexus/content/groups/public" }
+	maven { url "https://build.shibboleth.net/nexus/content/repositories/"}
 }
 
 ext {
@@ -30,6 +32,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// https://mvnrepository.com/artifact/org.springframework.security.extensions/spring-security-saml2-core
+	compile group: 'org.springframework.security.extensions', name: 'spring-security-saml2-core', version: '1.0.9.RELEASE'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	implementation (project(':todo-ui'))
